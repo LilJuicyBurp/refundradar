@@ -118,7 +118,7 @@ refundradar/
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/refundradar.git
+git clone https://github.com/LilJuicyBurp/refundradar.git
 cd refundradar
 npm install
 ```
