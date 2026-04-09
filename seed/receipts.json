@@ -1,0 +1,232 @@
+[
+  {
+    "id": "receipt_001",
+    "source": "email",
+    "emailSubject": "Your Amazon.com order of AirPods Pro has shipped",
+    "emailFrom": "auto-confirm@amazon.com",
+    "emailDate": "2025-12-15T14:22:00Z",
+    "parsed": {
+      "store": "Amazon",
+      "orderNumber": "113-8273641-9283746",
+      "items": [
+        { "name": "Apple AirPods Pro (2nd Generation)", "quantity": 1, "price": 249.00 }
+      ],
+      "subtotal": 249.00,
+      "tax": 19.92,
+      "shipping": 0.00,
+      "totalAmount": 268.92,
+      "purchaseDate": "2025-12-15",
+      "returnDeadline": "2026-01-31",
+      "warrantyEnd": null,
+      "paymentMethod": "Visa ending in 4242"
+    },
+    "rawEmailSnippet": "Order Confirmation\nThank you for your purchase!\nAirPods Pro (2nd Generation) — $249.00\nFree shipping\nOrder #113-8273641-9283746\nReturn by January 31, 2026"
+  },
+  {
+    "id": "receipt_002",
+    "source": "email",
+    "emailSubject": "Your Nike order #W-12839274 confirmation",
+    "emailFrom": "orders@nike.com",
+    "emailDate": "2025-11-28T09:10:00Z",
+    "parsed": {
+      "store": "Nike",
+      "orderNumber": "W-12839274",
+      "items": [
+        { "name": "Nike Air Max 270 (Men's, Size 11)", "quantity": 1, "price": 150.00 }
+      ],
+      "subtotal": 150.00,
+      "tax": 10.50,
+      "shipping": 0.00,
+      "totalAmount": 160.50,
+      "purchaseDate": "2025-11-28",
+      "returnDeadline": "2025-12-28",
+      "warrantyEnd": null,
+      "paymentMethod": "Mastercard ending in 1234"
+    },
+    "rawEmailSnippet": "Your Nike Order is Confirmed\nNike Air Max 270 — $150.00\nFree standard shipping\nOrder Number: W-12839274\nReturn within 30 days of purchase date."
+  },
+  {
+    "id": "receipt_003",
+    "source": "email",
+    "emailSubject": "Best Buy Order Confirmation #BBY01-807234561",
+    "emailFrom": "BestBuyInfo@emailinfo.bestbuy.com",
+    "emailDate": "2026-01-05T17:45:00Z",
+    "parsed": {
+      "store": "Best Buy",
+      "orderNumber": "BBY01-807234561",
+      "items": [
+        { "name": "Sony 65\" BRAVIA XR A80L OLED 4K TV", "quantity": 1, "price": 899.99 }
+      ],
+      "subtotal": 899.99,
+      "tax": 72.00,
+      "shipping": 0.00,
+      "totalAmount": 971.99,
+      "purchaseDate": "2026-01-05",
+      "returnDeadline": "2026-02-04",
+      "warrantyEnd": "2030-01-05",
+      "paymentMethod": "Best Buy Credit Card"
+    },
+    "rawEmailSnippet": "Best Buy Order Confirmation\nSony 65\" OLED 4K TV — $899.99\nOrder: BBY01-807234561\nReturn or exchange by February 4, 2026\nManufacturer warranty: 4 years"
+  },
+  {
+    "id": "receipt_004",
+    "source": "email",
+    "emailSubject": "Your Target order T8273645 is confirmed",
+    "emailFrom": "target@e.target.com",
+    "emailDate": "2026-01-20T11:30:00Z",
+    "parsed": {
+      "store": "Target",
+      "orderNumber": "T8273645",
+      "items": [
+        { "name": "Instant Pot Duo 7-in-1 Electric Pressure Cooker, 6 Qt", "quantity": 1, "price": 89.99 }
+      ],
+      "subtotal": 89.99,
+      "tax": 7.20,
+      "shipping": 0.00,
+      "totalAmount": 97.19,
+      "purchaseDate": "2026-01-20",
+      "returnDeadline": "2026-03-21",
+      "warrantyEnd": "2028-01-20",
+      "paymentMethod": "Target RedCard"
+    },
+    "rawEmailSnippet": "Order Confirmed!\nInstant Pot Duo 7-in-1 — $89.99\nFree shipping with RedCard\nOrder #T8273645\n60-day return policy. Instant Pot 2-year warranty included."
+  },
+  {
+    "id": "receipt_005",
+    "source": "email",
+    "emailSubject": "Apple Order W1234567890 — iPad Air (M2) receipt",
+    "emailFrom": "no_reply@email.apple.com",
+    "emailDate": "2026-02-01T20:12:00Z",
+    "parsed": {
+      "store": "Apple",
+      "orderNumber": "W1234567890",
+      "items": [
+        { "name": "iPad Air 11-inch (M2) — 256GB, Blue", "quantity": 1, "price": 599.00 }
+      ],
+      "subtotal": 599.00,
+      "tax": 47.92,
+      "shipping": 0.00,
+      "totalAmount": 646.92,
+      "purchaseDate": "2026-02-01",
+      "returnDeadline": "2026-03-02",
+      "warrantyEnd": "2027-02-01",
+      "paymentMethod": "Apple Card"
+    },
+    "rawEmailSnippet": "Thank you for your Apple Store order.\niPad Air (M2) 256GB — $599.00\nOrder W1234567890\nReturn within 14 days. One-year limited warranty. AppleCare+ available."
+  },
+  {
+    "id": "receipt_006",
+    "source": "email",
+    "emailSubject": "Your Wayfair order is on its way! Order #CS123456789",
+    "emailFrom": "notifications@wayfair.com",
+    "emailDate": "2026-01-10T08:00:00Z",
+    "parsed": {
+      "store": "Wayfair",
+      "orderNumber": "CS123456789",
+      "items": [
+        { "name": "Inbox Zero Ergonomic Mesh Office Chair", "quantity": 1, "price": 325.00 }
+      ],
+      "subtotal": 325.00,
+      "tax": 26.00,
+      "shipping": 0.00,
+      "totalAmount": 351.00,
+      "purchaseDate": "2026-01-10",
+      "returnDeadline": "2026-02-09",
+      "warrantyEnd": null,
+      "paymentMethod": "Visa ending in 4242"
+    },
+    "rawEmailSnippet": "Your Wayfair order is confirmed!\nInbox Zero Ergonomic Office Chair — $325.00\nFree shipping\nOrder CS123456789\n30-day return window from delivery date."
+  },
+  {
+    "id": "receipt_007",
+    "source": "email",
+    "emailSubject": "Walmart.com — Order Confirmation #6543218765",
+    "emailFrom": "help@walmart.com",
+    "emailDate": "2026-03-01T13:20:00Z",
+    "parsed": {
+      "store": "Walmart",
+      "orderNumber": "6543218765",
+      "items": [
+        { "name": "Hamilton Beach 12-Cup Programmable Coffee Maker", "quantity": 1, "price": 64.99 }
+      ],
+      "subtotal": 64.99,
+      "tax": 5.20,
+      "shipping": 0.00,
+      "totalAmount": 70.19,
+      "purchaseDate": "2026-03-01",
+      "returnDeadline": "2026-03-31",
+      "warrantyEnd": null,
+      "paymentMethod": "Walmart Pay"
+    },
+    "rawEmailSnippet": "Order Confirmed!\nHamilton Beach Coffee Maker — $64.99\nFree pickup or shipping\nOrder #6543218765\nReturn within 30 days."
+  },
+  {
+    "id": "receipt_008",
+    "source": "email",
+    "emailSubject": "Your Gap order #1234567 confirmation",
+    "emailFrom": "customerservice@gap.com",
+    "emailDate": "2025-12-01T10:05:00Z",
+    "parsed": {
+      "store": "Gap",
+      "orderNumber": "GAP-1234567",
+      "items": [
+        { "name": "Gap ColdControl Max Puffer Jacket (Women's, XS, Navy)", "quantity": 1, "price": 129.99 }
+      ],
+      "subtotal": 129.99,
+      "tax": 10.40,
+      "shipping": 0.00,
+      "totalAmount": 140.39,
+      "purchaseDate": "2025-12-01",
+      "returnDeadline": "2026-01-15",
+      "warrantyEnd": null,
+      "paymentMethod": "Gap Visa Card"
+    },
+    "rawEmailSnippet": "Your Gap Order is Confirmed\nColdControl Max Puffer Jacket — $129.99\nOrder #GAP-1234567\nReturns accepted within 45 days of purchase. Final sale items excluded."
+  },
+  {
+    "id": "receipt_009",
+    "source": "email",
+    "emailSubject": "Costco Order Confirmation #987654321",
+    "emailFrom": "membersupport@costco.com",
+    "emailDate": "2026-02-14T14:00:00Z",
+    "parsed": {
+      "store": "Costco",
+      "orderNumber": "987654321",
+      "items": [
+        { "name": "KitchenAid Artisan Series 5 Qt Stand Mixer, Empire Red", "quantity": 1, "price": 449.99 }
+      ],
+      "subtotal": 449.99,
+      "tax": 36.00,
+      "shipping": 0.00,
+      "totalAmount": 485.99,
+      "purchaseDate": "2026-02-14",
+      "returnDeadline": "2026-05-14",
+      "warrantyEnd": "2032-02-14",
+      "paymentMethod": "Costco Anywhere Visa"
+    },
+    "rawEmailSnippet": "Costco Order Confirmed\nKitchenAid Artisan Stand Mixer — $449.99\nOrder #987654321\nCostco satisfaction guarantee — 90-day return policy\nKitchenAid 5-year hassle-free warranty included."
+  },
+  {
+    "id": "receipt_010",
+    "source": "email",
+    "emailSubject": "Nordstrom Order #NR8765432 — Thank you!",
+    "emailFrom": "orders@nordstrom.com",
+    "emailDate": "2026-03-15T11:11:00Z",
+    "parsed": {
+      "store": "Nordstrom",
+      "orderNumber": "NR8765432",
+      "items": [
+        { "name": "On Cloudsurfer Running Shoe (Women's, Size 8)", "quantity": 1, "price": 175.00 }
+      ],
+      "subtotal": 175.00,
+      "tax": 14.00,
+      "shipping": 0.00,
+      "totalAmount": 189.00,
+      "purchaseDate": "2026-03-15",
+      "returnDeadline": "2026-04-14",
+      "warrantyEnd": null,
+      "paymentMethod": "Nordstrom Card"
+    },
+    "rawEmailSnippet": "Thank you for your Nordstrom order!\nOn Cloudsurfer Running Shoe — $175.00\nOrder NR8765432\nFree shipping & returns. Return anytime. No questions asked."
+  }
+]

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RefundRadar</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 340px;
+      min-height: 420px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      background: #f8faf9;
+      color: #0f1f16;
+    }
+
+    /* Header */
+    .header {
+      background: #1f7a57;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header svg { flex-shrink: 0; }
+    .header-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.2px;
+    }
+    .header-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 1px;
+    }
+
+    /* Status bar */
+    .status-bar {
+      background: #e6f4ee;
+      border-bottom: 1px solid #c3e0d0;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #1f7a57;
+    }
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #1f7a57;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* Sections */
+    .section { padding: 14px 16px; border-bottom: 1px solid #e8f0ec; }
+    .section-title {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #6b8f7a;
+      margin-bottom: 10px;
+    }
+
+    /* Current page product */
+    .product-detected {
+      background: #fff;
+      border: 1px solid #d0e8db;
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .product-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f1f16;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .product-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .price-current {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f1f16;
+    }
+    .price-original {
+      font-size: 13px;
+      color: #6b8f7a;
+      text-decoration: line-through;
+    }
+    .price-drop-badge {
+      background: #d1fae5;
+      color: #065f46;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 20px;
+    }
+
+    /* Buttons */
+    .btn {
+      width: 100%;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary {
+      background: #1f7a57;
+      color: #fff;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary {
+      background: #e6f4ee;
+      color: #1f7a57;
+      border: 1px solid #c3e0d0;
+      margin-top: 7px;
+    }
+    .btn-secondary:hover { background: #d0eade; }
+    .btn-outline {
+      background: #fff;
+      color: #1f7a57;
+      border: 1px solid #c3e0d0;
+      margin-top: 7px;
+    }
+
+    /* Alert cards */
+    .alert-card {
+      background: #fff;
+      border: 1px solid #e8f0ec;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 6px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .alert-icon {
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .alert-icon.return { background: #fef3c7; }
+    .alert-icon.price  { background: #d1fae5; }
+    .alert-icon.warranty { background: #ede9fe; }
+    .alert-body { flex: 1; min-width: 0; }
+    .alert-title { font-size: 12px; font-weight: 600; color: #0f1f16; }
+    .alert-desc  { font-size: 11px; color: #6b8f7a; margin-top: 2px; }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 20px 0 10px;
+      color: #6b8f7a;
+      font-size: 12px;
+    }
+    .empty-icon { font-size: 28px; margin-bottom: 6px; }
+
+    /* Price compare form */
+    .input-group { margin-bottom: 8px; }
+    .input-label { font-size: 11px; color: #6b8f7a; margin-bottom: 4px; display: block; font-weight: 500; }
+    .input-field {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #d0e8db;
+      border-radius: 7px;
+      font-size: 13px;
+      background: #fff;
+      color: #0f1f16;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .input-field:focus { border-color: #1f7a57; }
+
+    /* Footer */
+    .footer {
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 11px;
+      color: #9ab8a8;
+    }
+    .footer a { color: #1f7a57; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* Tabs */
+    .tabs { display: flex; border-bottom: 1px solid #e8f0ec; background: #fff; }
+    .tab {
+      flex: 1;
+      padding: 9px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #6b8f7a;
+      text-align: center;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .tab.active { color: #1f7a57; border-bottom-color: #1f7a57; }
+    .tab:hover:not(.active) { background: #f0faf5; }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .success-msg {
+      background: #d1fae5;
+      border: 1px solid #6ee7b7;
+      border-radius: 7px;
+      padding: 9px 12px;
+      font-size: 12px;
+      color: #065f46;
+      font-weight: 500;
+      text-align: center;
+      margin-top: 8px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="RefundRadar logo">
+    <circle cx="14" cy="14" r="12" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+    <circle cx="14" cy="14" r="8"  stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+    <circle cx="14" cy="14" r="3.5" fill="white"/>
+    <line x1="14" y1="14" x2="22" y2="7" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+  <div>
+    <div class="header-title">RefundRadar</div>
+    <div class="header-sub">Price & Refund Tracker</div>
+  </div>
+</div>
+
+<!-- Status bar -->
+<div class="status-bar" id="statusBar">
+  <div class="status-dot"></div>
+  <span id="statusText">Connected · 3 active alerts</span>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab active" data-tab="compare">Compare Price</div>
+  <div class="tab" data-tab="alerts">Alerts</div>
+  <div class="tab" data-tab="add">Add Purchase</div>
+</div>
+
+<!-- Tab: Compare Price -->
+<div class="tab-content active" id="tab-compare">
+  <div class="section">
+    <div class="section-title">Current Page</div>
+    <div class="product-detected" id="productDetected">
+      <div class="product-name" id="detectedProduct">Detecting product…</div>
+      <div class="product-price-row">
+        <span class="price-current" id="detectedPrice">—</span>
+        <span class="price-original" id="originalPrice" style="display:none"></span>
+        <span class="price-drop-badge" id="dropBadge" style="display:none"></span>
+      </div>
+      <button class="btn btn-primary" id="compareBtn">Compare With My Purchases</button>
+      <button class="btn btn-secondary" id="trackBtn">Track This Price</button>
+    </div>
+  </div>
+
+  <div class="section" id="comparisonResult" style="display:none">
+    <div class="section-title">Match Found</div>
+    <div class="alert-card">
+      <div class="alert-icon price">💰</div>
+      <div class="alert-body">
+        <div class="alert-title" id="matchTitle">Price dropped since your purchase</div>
+        <div class="alert-desc" id="matchDesc">You may be eligible for a price adjustment.</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="openDashboard()">View Claim Checklist</button>
+  </div>
+</div>
+
+<!-- Tab: Alerts -->
+<div class="tab-content" id="tab-alerts">
+  <div class="section">
+    <div class="section-title">Recent Alerts</div>
+    <div id="alertsList">
+      <div class="alert-card">
+        <div class="alert-icon return">⏰</div>
+        <div class="alert-body">
+          <div class="alert-title">AirPods Pro — Return ends in 3 days</div>
+          <div class="alert-desc">Amazon · $249.00 · Jan 31 deadline</div>
+        </div>
+      </div>
+      <div class="alert-card">
+        <div class="alert-icon price">📉</div>
+        <div class="alert-body">
+          <div class="alert-title">Sony TV — Price dropped $150</div>
+          <div class="alert-desc">Best Buy · now $749.99 · paid $899.99</div>
+        </div>
+      </div>
+      <div class="alert-card">
+        <div class="alert-icon warranty">🛡️</div>
+        <div class="alert-body">
+          <div class="alert-title">KitchenAid Mixer — Warranty active</div>
+          <div class="alert-desc">Costco · 5-year coverage through 2032</div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-outline" style="margin-top:4px" onclick="openDashboard()">View All in Dashboard →</button>
+  </div>
+</div>
+
+<!-- Tab: Add Purchase -->
+<div class="tab-content" id="tab-add">
+  <div class="section">
+    <div class="section-title">Log a Purchase</div>
+    <div class="input-group">
+      <label class="input-label">Store / Retailer</label>
+      <input class="input-field" id="inputStore" placeholder="e.g. Amazon, Target" />
+    </div>
+    <div class="input-group">
+      <label class="input-label">Item Name</label>
+      <input class="input-field" id="inputItem" placeholder="e.g. AirPods Pro" />
+    </div>
+    <div class="input-group">
+      <label class="input-label">Amount Paid ($)</label>
+      <input class="input-field" id="inputAmount" type="number" step="0.01" placeholder="0.00" />
+    </div>
+    <div class="input-group">
+      <label class="input-label">Purchase Date</label>
+      <input class="input-field" id="inputDate" type="date" />
+    </div>
+    <div class="input-group">
+      <label class="input-label">Return Deadline (optional)</label>
+      <input class="input-field" id="inputReturn" type="date" />
+    </div>
+    <button class="btn btn-primary" id="savePurchaseBtn">Save Purchase</button>
+    <div class="success-msg" id="saveSuccess">✓ Purchase saved to RefundRadar!</div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <a href="#" onclick="openDashboard()">Open RefundRadar Dashboard</a>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
